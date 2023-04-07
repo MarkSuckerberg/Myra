@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);MONOGAME</DefineConstants>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Myra</AssemblyName>
+    <PackageId>Myra</PackageId>
+    <OutputPath>bin\MonoGame\$(Configuration)</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Platform\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="info.lundin.math.dll" Version="$(InfoLundinMathVersion)" />
+    <PackageReference Include="nkast.Xna.Framework.Ref" Version="3.8.9102" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../FontStashSharp/src/XNA/FontStashSharp.Kni.csproj" />
+  </ItemGroup>  
+</Project>
